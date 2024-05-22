@@ -1,0 +1,14 @@
+node_modules/
+
+
+# Include target/deploy/whirlpool_cpi_sample-keypair.json (this secret key is dedicated for sample only)
+**/target/*
+!**/target/deploy
+**/target/deploy/*
+# !**/target/deploy/amm_cpi-keypair.json
+# !**/target/deploy/cp_swap_cpi-keypair.json
+
+.DS_Store
+.anchor/
+
+test-ledger/
