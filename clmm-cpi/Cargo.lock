@@ -665,6 +665,7 @@ dependencies = [
  "anchor-lang",
  "anchor-spl",
  "raydium-amm-v3",
+ "solana-program",
  "spl-memo 4.0.0",
 ]
 
@@ -1645,7 +1646,7 @@ dependencies = [
 [[package]]
 name = "raydium-amm-v3"
 version = "0.1.0"
-source = "git+https://github.com/raydium-io/raydium-clmm#cc1adca3cbe5eca08571d19ebedad4c0b8ec4022"
+source = "git+https://github.com/raydium-io/raydium-clmm#2eb458dfd634bb28521e25a81da3e93fa8926644"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
@@ -1653,6 +1654,7 @@ dependencies = [
  "bytemuck",
  "mpl-token-metadata 1.13.2",
  "solana-program",
+ "solana-security-txt",
  "spl-memo 4.0.0",
  "uint",
 ]
@@ -2116,6 +2118,12 @@ dependencies = [
  "rustversion",
  "syn 2.0.38",
 ]
+
+[[package]]
+name = "solana-security-txt"
+version = "1.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "468aa43b7edb1f9b7b7b686d5c3aeb6630dc1708e86e31343499dd5c4d775183"
 
 [[package]]
 name = "solana-zk-token-sdk"

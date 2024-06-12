@@ -25,6 +25,7 @@ pub struct ProxyInitialize<'info> {
         seeds = [
             raydium_cp_swap::AUTH_SEED.as_bytes(),
         ],
+        seeds::program = cp_swap_program,
         bump,
     )]
     pub authority: UncheckedAccount<'info>,
@@ -38,6 +39,7 @@ pub struct ProxyInitialize<'info> {
             token_0_mint.key().as_ref(),
             token_1_mint.key().as_ref(),
         ],
+        seeds::program = cp_swap_program,
         bump,
     )]
     pub pool_state: UncheckedAccount<'info>,
@@ -62,6 +64,7 @@ pub struct ProxyInitialize<'info> {
             POOL_LP_MINT_SEED.as_bytes(),
             pool_state.key().as_ref(),
         ],
+        seeds::program = cp_swap_program,
         bump,
     )]
     pub lp_mint: UncheckedAccount<'info>,
@@ -94,6 +97,7 @@ pub struct ProxyInitialize<'info> {
             pool_state.key().as_ref(),
             token_0_mint.key().as_ref()
         ],
+        seeds::program = cp_swap_program,
         bump,
     )]
     pub token_0_vault: UncheckedAccount<'info>,
@@ -106,6 +110,7 @@ pub struct ProxyInitialize<'info> {
             pool_state.key().as_ref(),
             token_1_mint.key().as_ref()
         ],
+        seeds::program = cp_swap_program,
         bump,
     )]
     pub token_1_vault: UncheckedAccount<'info>,
@@ -124,6 +129,7 @@ pub struct ProxyInitialize<'info> {
             OBSERVATION_SEED.as_bytes(),
             pool_state.key().as_ref(),
         ],
+        seeds::program = cp_swap_program,
         bump,
     )]
     pub observation_state: UncheckedAccount<'info>,

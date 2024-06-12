@@ -22,4 +22,5 @@ raydium-amm-v3 = { git = "https://github.com/raydium-io/raydium-clmm", features 
     "no-entrypoint",
     "cpi",
 ] }
+solana-program = ">=1.16, <1.18"
 spl-memo = "4.0.0"

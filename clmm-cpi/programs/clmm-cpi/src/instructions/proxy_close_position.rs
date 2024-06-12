@@ -41,6 +41,7 @@ pub struct ProxyClosePosition<'info> {
     #[account(
         mut, 
         seeds = [POSITION_SEED.as_bytes(), position_nft_mint.key().as_ref()],
+        seeds::program = clmm_program,
         bump,
         close = nft_owner
     )]
