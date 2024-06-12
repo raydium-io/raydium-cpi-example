@@ -26,6 +26,7 @@ pub struct ProxyInitialize<'info> {
             token_mint_0.key().as_ref(),
             token_mint_1.key().as_ref(),
         ],
+        seeds::program = clmm_program,
         bump,
     )]
     pub pool_state: UncheckedAccount<'info>,
@@ -51,6 +52,7 @@ pub struct ProxyInitialize<'info> {
             pool_state.key().as_ref(),
             token_mint_0.key().as_ref(),
         ],
+        seeds::program = clmm_program,
         bump,
     )]
     pub token_vault_0: UncheckedAccount<'info>,
@@ -63,6 +65,7 @@ pub struct ProxyInitialize<'info> {
             pool_state.key().as_ref(),
             token_mint_1.key().as_ref(),
         ],
+        seeds::program = clmm_program,
         bump,
     )]
     pub token_vault_1: UncheckedAccount<'info>,
@@ -78,6 +81,7 @@ pub struct ProxyInitialize<'info> {
             POOL_TICK_ARRAY_BITMAP_SEED.as_bytes(),
             pool_state.key().as_ref(),
         ],
+        seeds::program = clmm_program,
         bump,
     )]
     pub tick_array_bitmap: UncheckedAccount<'info>,

@@ -17,6 +17,7 @@ pub struct ProxySwapBaseOutput<'info> {
       seeds = [
         raydium_cp_swap::AUTH_SEED.as_bytes(),
       ],
+      seeds::program = cp_swap_program,
       bump,
   )]
     pub authority: UncheckedAccount<'info>,
