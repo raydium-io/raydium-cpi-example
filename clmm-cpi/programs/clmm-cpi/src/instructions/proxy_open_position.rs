@@ -21,9 +21,9 @@ pub struct ProxyOpenPosition<'info> {
     /// CHECK: Receives the position NFT
     pub position_nft_owner: UncheckedAccount<'info>,
 
-    /// CHECK: Unique token mint address
+    /// CHECK: Unique token mint address, random keypair
     #[account(mut)]
-    pub position_nft_mint: UncheckedAccount<'info>,
+    pub position_nft_mint: Signer<'info>,
 
     /// CHECK: Token account where position NFT will be minted
     /// This account created in the contract by cpi to avoid large stack variables
