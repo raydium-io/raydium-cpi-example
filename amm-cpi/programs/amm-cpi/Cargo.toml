@@ -16,7 +16,11 @@ cpi = ["no-entrypoint"]
 default = []
 
 [dependencies]
-anchor-lang = "0.29.0"
-anchor-spl = "0.29.0"
+anchor-lang = "=0.29.0"
+anchor-spl = "=0.29.0"
 amm-anchor = { git = "https://github.com/raydium-io/raydium-contract-instructions", package = "amm-anchor" }
 solana-program = ">=1.16, <1.18"
+spl-token = "=4.0.0"
+spl-memo = "=4.0.0"
+num_enum = "=0.7.0"
+ahash = "=0.8.6"

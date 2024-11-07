@@ -23,4 +23,7 @@ raydium-cp-swap = { git = "https://github.com/raydium-io/raydium-cp-swap", featu
     "cpi",
 ] }
 solana-program = ">=1.16, <1.18"
-spl-memo = "4.0.0"
+spl-token = "=4.0.0"
+spl-memo = "=4.0.0"
+num_enum = "=0.7.0"
+ahash = "=0.8.6"
