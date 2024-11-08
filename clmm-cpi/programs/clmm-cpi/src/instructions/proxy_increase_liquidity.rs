@@ -1,9 +1,9 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::Token;
 use anchor_spl::token_interface::{Mint, Token2022, TokenAccount};
-use raydium_amm_v3::{
+use raydium_clmm_cpi::{
     cpi,
-    program::AmmV3,
+    program::RaydiumClmm,
     states::{
         PersonalPositionState, PoolState, ProtocolPositionState, TickArrayState, POSITION_SEED,
     },
@@ -11,7 +11,7 @@ use raydium_amm_v3::{
 
 #[derive(Accounts)]
 pub struct ProxyIncreaseLiquidity<'info> {
-    pub clmm_program: Program<'info, AmmV3>,
+    pub clmm_program: Program<'info, RaydiumClmm>,
     /// Pays to mint the position
     pub nft_owner: Signer<'info>,
 

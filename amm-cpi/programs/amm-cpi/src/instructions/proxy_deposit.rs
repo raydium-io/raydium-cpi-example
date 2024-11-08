@@ -1,6 +1,6 @@
-use amm_anchor::Deposit;
 use anchor_lang::prelude::*;
 use anchor_spl::token::Token;
+use raydium_amm_cpi::Deposit;
 #[derive(Accounts, Clone)]
 pub struct ProxyDeposit<'info> {
     /// CHECK: Safe
@@ -77,7 +77,7 @@ pub fn deposit(
     max_pc_amount: u64,
     base_side: u64,
 ) -> Result<()> {
-    amm_anchor::deposit(
+    raydium_amm_cpi::deposit(
         ctx.accounts.into(),
         max_coin_amount,
         max_pc_amount,

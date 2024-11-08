@@ -3,7 +3,7 @@ use anchor_spl::{
     token::Token,
     token_interface::{Mint, TokenAccount, Token2022},
 };
-use raydium_cp_swap::{
+use raydium_cpmm_cpi::{
     cpi,
     program::RaydiumCpSwap,
     states::PoolState,
@@ -18,7 +18,7 @@ pub struct ProxyWithdraw<'info> {
   /// CHECK: pool vault and lp mint authority
   #[account(
       seeds = [
-        raydium_cp_swap::AUTH_SEED.as_bytes(),
+        raydium_cpmm_cpi::AUTH_SEED.as_bytes(),
       ],
       seeds::program = cp_swap_program,
       bump,

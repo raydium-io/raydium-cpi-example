@@ -1,14 +1,14 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token_interface::{Mint, TokenInterface};
-use raydium_amm_v3::{
+use raydium_clmm_cpi::{
     cpi,
-    program::AmmV3,
+    program::RaydiumClmm,
     states::{AmmConfig, POOL_SEED, POOL_TICK_ARRAY_BITMAP_SEED, POOL_VAULT_SEED},
 };
 // use solana_program::{program::invoke_signed, system_instruction};
 #[derive(Accounts)]
 pub struct ProxyInitialize<'info> {
-    pub clmm_program: Program<'info, AmmV3>,
+    pub clmm_program: Program<'info, RaydiumClmm>,
 
     /// Address paying to create the pool. Can be anyone
     #[account(mut)]

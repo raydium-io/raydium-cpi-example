@@ -8,7 +8,7 @@ skip-lint = false
 clmm_cpi = "8wGnAiSXYK31kdas6qNgfr8N3pzHoBEAaDK824qgYE81"
 
 [registry]
-url = "https://api.apr.dev"
+url = "https://github.com/raydium-io/raydium-cpi-example"
 
 [provider]
 cluster = "Localnet"
@@ -16,3 +16,19 @@ wallet = "/home/ubuntu/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+
+[test.validator]
+url = "https://api.mainnet-beta.solana.com"
+
+# clmm program in mainnet
+[[test.validator.clone]]
+address = "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK"
+
+# clmm ammConfig in mainnet
+[[test.validator.clone]]
+address = "4BLNHtVe942GSs4teSZqGX24xwKNkqU7bGgNn3iUiUpw"
+
+# metadata program in mainnet
+[[test.validator.clone]]
+address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"

@@ -18,12 +18,9 @@ default = []
 [dependencies]
 anchor-lang = "=0.29.0"
 anchor-spl = "=0.29.0"
-raydium-amm-v3 = { git = "https://github.com/raydium-io/raydium-clmm", features = [
-    "no-entrypoint",
-    "cpi",
-] }
-solana-program = ">=1.16, <1.18"
-spl-token = "=4.0.0"
+raydium-clmm-cpi = { git = "ssh://git@github.com/raydium-io/raydium-cpi.git", package = "raydium-clmm-cpi", branch = "anchor-0.29.0" }
 spl-memo = "=4.0.0"
-num_enum = "=0.7.0"
-ahash = "=0.8.6"
+# solana-program = ">=1.16, <1.18"
+# spl-token = "=4.0.0"
+# num_enum = "=0.7.0"
+# ahash = "=0.8.6"

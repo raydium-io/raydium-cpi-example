@@ -4,7 +4,7 @@ use anchor_spl::{
     token::Token,
     token_interface::{Mint, TokenAccount, TokenInterface},
 };
-use raydium_cp_swap::{
+use raydium_cpmm_cpi::{
     cpi,
     program::RaydiumCpSwap,
     states::{AmmConfig, OBSERVATION_SEED, POOL_LP_MINT_SEED, POOL_SEED, POOL_VAULT_SEED},
@@ -23,7 +23,7 @@ pub struct ProxyInitialize<'info> {
     /// CHECK: pool vault and lp mint authority
     #[account(
         seeds = [
-            raydium_cp_swap::AUTH_SEED.as_bytes(),
+            raydium_cpmm_cpi::AUTH_SEED.as_bytes(),
         ],
         seeds::program = cp_swap_program,
         bump,
@@ -118,7 +118,7 @@ pub struct ProxyInitialize<'info> {
     /// create pool fee account
     #[account(
         mut,
-        address= raydium_cp_swap::create_pool_fee_reveiver::id(),
+        address= raydium_cpmm_cpi::create_pool_fee_reveiver::id(),
     )]
     pub create_pool_fee: Box<InterfaceAccount<'info, TokenAccount>>,
 

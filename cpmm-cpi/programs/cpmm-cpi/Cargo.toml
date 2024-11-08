@@ -1,21 +1,21 @@
 [package]
-name = "amm-cpi"
+name = "cpmm-cpi"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "amm_cpi"
+name = "cpmm_cpi"
 
 [features]
 no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
-cpi = ["no-entrypoint"]
 default = []
 
 [dependencies]
 anchor-lang = "=0.29.0"
 anchor-spl = "=0.29.0"
-raydium-amm-cpi = { git = "ssh://git@github.com/raydium-io/raydium-cpi.git", package = "raydium-amm-cpi" }
+raydium-cpmm-cpi = { git = "ssh://git@github.com/raydium-io/raydium-cpi.git", package = "raydium-cpmm-cpi", branch = "anchor-0.29.0" }
+spl-memo = "=4.0.0"
