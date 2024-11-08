@@ -1564,7 +1564,7 @@ dependencies = [
 [[package]]
 name = "raydium-clmm-cpi"
 version = "0.1.0"
-source = "git+ssh://git@github.com/raydium-io/raydium-cpi.git?branch=anchor-0.29.0#559a8c77c551e5eea08ae9cbc77a1374d0fe746d"
+source = "git+https://github.com/raydium-io/raydium-clmm#7a4d32713bd6ef7754a21c79b35df917ded58c99"
 dependencies = [
  "ahash 0.8.6",
  "anchor-lang",
