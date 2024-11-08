@@ -1,7 +1,7 @@
-use amm_anchor::Initialize2;
 use anchor_lang::prelude::*;
 use anchor_spl::associated_token::AssociatedToken;
 use anchor_spl::token::Token;
+use raydium_amm_cpi::Initialize2;
 
 #[derive(Accounts, Clone)]
 pub struct ProxyInitialize<'info> {
@@ -46,7 +46,7 @@ pub struct ProxyInitialize<'info> {
     pub create_fee_destination: UncheckedAccount<'info>,
     /// CHECK: Safe. OpenBook program.
     #[account(
-        address = amm_anchor::openbook_program_id::id(),
+        address = raydium_amm_cpi::openbook_program_id::id(),
     )]
     pub market_program: UncheckedAccount<'info>,
     /// CHECK: Safe. OpenBook market. OpenBook program is the owner.
@@ -124,7 +124,7 @@ pub fn initialize(
     init_pc_amount: u64,
     init_coin_amount: u64,
 ) -> Result<()> {
-    amm_anchor::initialize(
+    raydium_amm_cpi::initialize(
         ctx.accounts.into(),
         nonce,
         open_time,

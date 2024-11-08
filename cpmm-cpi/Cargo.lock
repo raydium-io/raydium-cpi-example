@@ -684,17 +684,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7c74b8349d32d297c9134b8c88677813a227df8f779daa29bfc29c183fe3dca6"
 
 [[package]]
-name = "cp-swap-cpi"
+name = "cpmm-cpi"
 version = "0.1.0"
 dependencies = [
- "ahash 0.8.6",
  "anchor-lang",
  "anchor-spl",
- "num_enum 0.7.0",
- "raydium-cp-swap",
- "solana-program",
+ "raydium-cpmm-cpi",
  "spl-memo",
- "spl-token",
 ]
 
 [[package]]
@@ -1002,12 +998,6 @@ checksum = "62b467343b94ba476dcb2500d242dadbb39557df889310ac77c5d99100aaac33"
 dependencies = [
  "libc",
 ]
-
-[[package]]
-name = "hex"
-version = "0.4.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "hmac"
@@ -1572,19 +1562,17 @@ dependencies = [
 ]
 
 [[package]]
-name = "raydium-cp-swap"
+name = "raydium-cpmm-cpi"
 version = "0.1.0"
-source = "git+https://github.com/raydium-io/raydium-cp-swap#34a208a4738b0ac070f32ac51a7c00f0982df764"
+source = "git+https://github.com/raydium-io/raydium-cpi?branch=anchor-0.29.0#90b5df77ff6846e23ace6a56c9f7f90101aeccf3"
 dependencies = [
+ "ahash 0.8.6",
  "anchor-lang",
  "anchor-spl",
- "arrayref",
- "bytemuck",
- "solana-security-txt",
- "spl-math",
+ "num_enum 0.7.0",
+ "solana-program",
  "spl-memo",
  "spl-token",
- "uint",
 ]
 
 [[package]]
@@ -1996,12 +1984,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "solana-security-txt"
-version = "1.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "468aa43b7edb1f9b7b7b686d5c3aeb6630dc1708e86e31343499dd5c4d775183"
-
-[[package]]
 name = "solana-zk-token-sdk"
 version = "1.17.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2079,20 +2061,6 @@ dependencies = [
  "sha2 0.10.8",
  "syn 2.0.87",
  "thiserror",
-]
-
-[[package]]
-name = "spl-math"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "102d87a7608c793497fa3e85e9d0e24a33be06a94fb029b2cd30d794295f8110"
-dependencies = [
- "borsh 0.10.4",
- "num-derive 0.3.3",
- "num-traits",
- "solana-program",
- "thiserror",
- "uint",
 ]
 
 [[package]]
@@ -2237,12 +2205,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "static_assertions"
-version = "1.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
-
-[[package]]
 name = "strsim"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2370,18 +2332,6 @@ name = "typenum"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
-
-[[package]]
-name = "uint"
-version = "0.9.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "76f64bba2c53b04fcab63c01a7d7427eadc821e3bc48c34dc9ba29c501164b52"
-dependencies = [
- "byteorder",
- "crunchy",
- "hex",
- "static_assertions",
-]
 
 [[package]]
 name = "unicode-ident"

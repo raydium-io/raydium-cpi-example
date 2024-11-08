@@ -1,6 +1,6 @@
-use amm_anchor::SwapBaseOut;
 use anchor_lang::prelude::*;
 use anchor_spl::token::Token;
+use raydium_amm_cpi::SwapBaseOut;
 #[derive(Accounts, Clone)]
 pub struct ProxySwapBaseOut<'info> {
     /// CHECK: Safe
@@ -92,5 +92,5 @@ pub fn swap_base_out(
     max_amount_in: u64,
     amount_out: u64,
 ) -> Result<()> {
-    amm_anchor::swap_base_out(ctx.accounts.into(), max_amount_in, amount_out)
+    raydium_amm_cpi::swap_base_out(ctx.accounts.into(), max_amount_in, amount_out)
 }

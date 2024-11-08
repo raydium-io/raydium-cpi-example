@@ -1,9 +1,9 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::Token;
 use anchor_spl::token_interface::{Mint, Token2022, TokenAccount};
-use raydium_amm_v3::{
+use raydium_clmm_cpi::{
     cpi,
-    program::AmmV3,
+    program::RaydiumClmm,
     states::{AmmConfig, ObservationState, PoolState},
 };
 
@@ -11,7 +11,7 @@ use raydium_amm_v3::{
 pub const SWAP_MEMO_MSG: &'static [u8] = b"raydium_swap";
 #[derive(Accounts)]
 pub struct ProxySwap<'info> {
-    pub clmm_program: Program<'info, AmmV3>,
+    pub clmm_program: Program<'info, RaydiumClmm>,
     /// The user performing the swap
     pub payer: Signer<'info>,
 

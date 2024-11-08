@@ -1,21 +1,21 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token_interface::{Mint, TokenAccount, TokenInterface};
-use raydium_cp_swap::{
+use raydium_cpmm_cpi::{
     cpi,
-    program::RaydiumCpSwap,
+    program::RaydiumCpmm,
     states::{AmmConfig, ObservationState, PoolState},
 };
 
 #[derive(Accounts)]
-pub struct ProxySwapBaseInput<'info> {
-    pub cp_swap_program: Program<'info, RaydiumCpSwap>,
+pub struct ProxySwapBaseOutput<'info> {
+    pub cp_swap_program: Program<'info, RaydiumCpmm>,
     /// The user performing the swap
     pub payer: Signer<'info>,
 
     /// CHECK: pool vault and lp mint authority
     #[account(
       seeds = [
-        raydium_cp_swap::AUTH_SEED.as_bytes(),
+        raydium_cpmm_cpi::AUTH_SEED.as_bytes(),
       ],
       seeds::program = cp_swap_program,
       bump,
@@ -74,10 +74,10 @@ pub struct ProxySwapBaseInput<'info> {
     pub observation_state: AccountLoader<'info, ObservationState>,
 }
 
-pub fn proxy_swap_base_input(
-    ctx: Context<ProxySwapBaseInput>,
-    amount_in: u64,
-    minimum_amount_out: u64,
+pub fn proxy_swap_base_output(
+    ctx: Context<ProxySwapBaseOutput>,
+    max_amount_in: u64,
+    amount_out: u64,
 ) -> Result<()> {
     let cpi_accounts = cpi::accounts::Swap {
         payer: ctx.accounts.payer.to_account_info(),
@@ -95,5 +95,5 @@ pub fn proxy_swap_base_input(
         observation_state: ctx.accounts.observation_state.to_account_info(),
     };
     let cpi_context = CpiContext::new(ctx.accounts.cp_swap_program.to_account_info(), cpi_accounts);
-    cpi::swap_base_input(cpi_context, amount_in, minimum_amount_out)
+    cpi::swap_base_output(cpi_context, max_amount_in, amount_out)
 }

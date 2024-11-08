@@ -1,6 +1,6 @@
-use amm_anchor::SwapBaseIn;
 use anchor_lang::prelude::*;
 use anchor_spl::token::Token;
+use raydium_amm_cpi::SwapBaseIn;
 #[derive(Accounts, Clone)]
 pub struct ProxySwapBaseIn<'info> {
     /// CHECK: Safe
@@ -92,5 +92,5 @@ pub fn swap_base_in(
     amount_in: u64,
     minimum_amount_out: u64,
 ) -> Result<()> {
-    amm_anchor::swap_base_in(ctx.accounts.into(), amount_in, minimum_amount_out)
+    raydium_amm_cpi::swap_base_in(ctx.accounts.into(), amount_in, minimum_amount_out)
 }

@@ -26,7 +26,7 @@ pub mod clmm_cpi {
         amount_0_max: u64,
         amount_1_max: u64,
         with_matedata: bool,
-        base_flag: Option<bool>,
+        // base_flag: Option<bool>,
     ) -> Result<()> {
         instructions::proxy_open_position(
             ctx,
@@ -38,7 +38,7 @@ pub mod clmm_cpi {
             amount_0_max,
             amount_1_max,
             with_matedata,
-            base_flag,
+            None,
         )
     }
     pub fn proxy_close_position<'a, 'b, 'c: 'info, 'info>(

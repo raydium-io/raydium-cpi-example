@@ -4,11 +4,11 @@ use anchor_spl::{
     token_2022::Token2022,
     token_interface::{Mint, TokenAccount},
 };
-use raydium_cp_swap::{cpi, program::RaydiumCpSwap, states::PoolState};
+use raydium_cpmm_cpi::{cpi, program::RaydiumCpmm, states::PoolState};
 
 #[derive(Accounts)]
 pub struct ProxyDeposit<'info> {
-    pub cp_swap_program: Program<'info, RaydiumCpSwap>,
+    pub cp_swap_program: Program<'info, RaydiumCpmm>,
 
     /// Pays to mint the position
     pub owner: Signer<'info>,
@@ -16,7 +16,7 @@ pub struct ProxyDeposit<'info> {
     /// CHECK: pool vault and lp mint authority
     #[account(
         seeds = [
-            raydium_cp_swap::AUTH_SEED.as_bytes(),
+            raydium_cpmm_cpi::AUTH_SEED.as_bytes(),
         ],
         seeds::program = cp_swap_program,
         bump,

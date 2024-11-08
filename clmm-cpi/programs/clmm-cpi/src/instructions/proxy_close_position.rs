@@ -2,14 +2,14 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::Token;
 use anchor_spl::token_interface::{Mint,TokenAccount};
-use raydium_amm_v3::{
+use raydium_clmm_cpi::{
     cpi,
-    program::AmmV3,
+    program::RaydiumClmm,
     states::{PersonalPositionState, POSITION_SEED,},
 };
 #[derive(Accounts)]
 pub struct ProxyClosePosition<'info> {
-    pub clmm_program: Program<'info, AmmV3>,
+    pub clmm_program: Program<'info, RaydiumClmm>,
     /// The position nft owner
     #[account(mut)]
     pub nft_owner: Signer<'info>,

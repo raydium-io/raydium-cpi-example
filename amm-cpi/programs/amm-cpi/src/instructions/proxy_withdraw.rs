@@ -1,6 +1,6 @@
-use amm_anchor::Withdraw;
 use anchor_lang::prelude::*;
 use anchor_spl::token::Token;
+use raydium_amm_cpi::Withdraw;
 #[derive(Accounts, Clone)]
 pub struct ProxyWithdraw<'info> {
     /// CHECK: Safe
@@ -97,5 +97,5 @@ impl<'a, 'b, 'c, 'info> From<&mut ProxyWithdraw<'info>>
 
 /// withdraw instruction
 pub fn withdraw(ctx: Context<ProxyWithdraw>, amount: u64) -> Result<()> {
-    amm_anchor::withdraw(ctx.accounts.into(), amount)
+    raydium_amm_cpi::withdraw(ctx.accounts.into(), amount)
 }

@@ -5,15 +5,15 @@ use anchor_spl::{
     token::Token,
     token_interface::{Mint, Token2022, TokenAccount},
 };
-use raydium_amm_v3::{
+use raydium_clmm_cpi::{
     cpi,
-    program::AmmV3,
+    program::RaydiumClmm,
     states::{PoolState, POSITION_SEED, TICK_ARRAY_SEED},
 };
 #[derive(Accounts)]
 #[instruction(tick_lower_index: i32, tick_upper_index: i32,tick_array_lower_start_index:i32,tick_array_upper_start_index:i32)]
 pub struct ProxyOpenPosition<'info> {
-    pub clmm_program: Program<'info, AmmV3>,
+    pub clmm_program: Program<'info, RaydiumClmm>,
     /// Pays to mint the position
     #[account(mut)]
     pub payer: Signer<'info>,
@@ -83,6 +83,7 @@ pub struct ProxyOpenPosition<'info> {
     #[account(
         mut,
         seeds = [POSITION_SEED.as_bytes(), position_nft_mint.key().as_ref()],
+        seeds::program = clmm_program,
         bump,
     )]
     pub personal_position: UncheckedAccount<'info>,
