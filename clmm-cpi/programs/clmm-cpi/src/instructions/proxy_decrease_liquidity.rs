@@ -1,4 +1,5 @@
 use anchor_lang::prelude::*;
+use anchor_spl::memo::Memo;
 use anchor_spl::token::Token;
 use anchor_spl::token_interface::Mint;
 use anchor_spl::token_interface::{Token2022, TokenAccount};
@@ -38,7 +39,7 @@ pub struct ProxyDecreaseLiquidity<'info> {
             &personal_position.tick_lower_index.to_be_bytes(),
             &personal_position.tick_upper_index.to_be_bytes(),
         ],
-        seeds::program = clmm_program,
+        seeds::program = clmm_program.key(),
         bump,
         constraint = protocol_position.pool_id == pool_state.key(),
     )]
@@ -86,11 +87,7 @@ pub struct ProxyDecreaseLiquidity<'info> {
     pub token_program_2022: Program<'info, Token2022>,
 
     /// memo program
-    /// CHECK:
-    #[account(
-        address = spl_memo::id()
-    )]
-    pub memo_program: UncheckedAccount<'info>,
+    pub memo_program: Program<'info, Memo>,
 
     /// The mint of token vault 0
     #[account(

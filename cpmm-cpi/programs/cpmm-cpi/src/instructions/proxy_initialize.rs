@@ -6,13 +6,13 @@ use anchor_spl::{
 };
 use raydium_cpmm_cpi::{
     cpi,
-    program::RaydiumCpSwap,
+    program::RaydiumCpmm,
     states::{AmmConfig, OBSERVATION_SEED, POOL_LP_MINT_SEED, POOL_SEED, POOL_VAULT_SEED},
 };
 
 #[derive(Accounts)]
 pub struct ProxyInitialize<'info> {
-    pub cp_swap_program: Program<'info, RaydiumCpSwap>,
+    pub cp_swap_program: Program<'info, RaydiumCpmm>,
     /// Address paying to create the pool. Can be anyone
     #[account(mut)]
     pub creator: Signer<'info>,
@@ -25,7 +25,7 @@ pub struct ProxyInitialize<'info> {
         seeds = [
             raydium_cpmm_cpi::AUTH_SEED.as_bytes(),
         ],
-        seeds::program = cp_swap_program,
+        seeds::program = cp_swap_program.key(),
         bump,
     )]
     pub authority: UncheckedAccount<'info>,
@@ -39,7 +39,7 @@ pub struct ProxyInitialize<'info> {
             token_0_mint.key().as_ref(),
             token_1_mint.key().as_ref(),
         ],
-        seeds::program = cp_swap_program,
+        seeds::program = cp_swap_program.key(),
         bump,
     )]
     pub pool_state: UncheckedAccount<'info>,
@@ -64,7 +64,7 @@ pub struct ProxyInitialize<'info> {
             POOL_LP_MINT_SEED.as_bytes(),
             pool_state.key().as_ref(),
         ],
-        seeds::program = cp_swap_program,
+        seeds::program = cp_swap_program.key(),
         bump,
     )]
     pub lp_mint: UncheckedAccount<'info>,
@@ -97,7 +97,7 @@ pub struct ProxyInitialize<'info> {
             pool_state.key().as_ref(),
             token_0_mint.key().as_ref()
         ],
-        seeds::program = cp_swap_program,
+        seeds::program = cp_swap_program.key(),
         bump,
     )]
     pub token_0_vault: UncheckedAccount<'info>,
@@ -110,7 +110,7 @@ pub struct ProxyInitialize<'info> {
             pool_state.key().as_ref(),
             token_1_mint.key().as_ref()
         ],
-        seeds::program = cp_swap_program,
+        seeds::program = cp_swap_program.key(),
         bump,
     )]
     pub token_1_vault: UncheckedAccount<'info>,
@@ -129,7 +129,7 @@ pub struct ProxyInitialize<'info> {
             OBSERVATION_SEED.as_bytes(),
             pool_state.key().as_ref(),
         ],
-        seeds::program = cp_swap_program,
+        seeds::program = cp_swap_program.key(),
         bump,
     )]
     pub observation_state: UncheckedAccount<'info>,

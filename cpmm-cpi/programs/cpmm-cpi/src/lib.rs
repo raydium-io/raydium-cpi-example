@@ -3,7 +3,7 @@ use anchor_lang::prelude::*;
 pub mod instructions;
 use instructions::*;
 
-declare_id!("A5DqDJBweQTieKjx3RXrnFHU1oQCD69edaDe5ztyn7KK");
+declare_id!("GnCY3X3sFSTd5tNygUNuKQkXee5CUuJJwPuk4Lfqgjyh");
 
 #[program]
 pub mod cp_swap_cpi {

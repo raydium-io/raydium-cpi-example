@@ -2,13 +2,13 @@ use anchor_lang::prelude::*;
 use anchor_spl::token_interface::{Mint, TokenAccount, TokenInterface};
 use raydium_cpmm_cpi::{
     cpi,
-    program::RaydiumCpSwap,
+    program::RaydiumCpmm,
     states::{AmmConfig, ObservationState, PoolState},
 };
 
 #[derive(Accounts)]
 pub struct ProxySwapBaseInput<'info> {
-    pub cp_swap_program: Program<'info, RaydiumCpSwap>,
+    pub cp_swap_program: Program<'info, RaydiumCpmm>,
     /// The user performing the swap
     pub payer: Signer<'info>,
 
@@ -17,7 +17,7 @@ pub struct ProxySwapBaseInput<'info> {
       seeds = [
         raydium_cpmm_cpi::AUTH_SEED.as_bytes(),
       ],
-      seeds::program = cp_swap_program,
+      seeds::program = cp_swap_program.key(),
       bump,
   )]
     pub authority: UncheckedAccount<'info>,

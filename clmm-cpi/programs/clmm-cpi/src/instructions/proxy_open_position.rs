@@ -48,7 +48,7 @@ pub struct ProxyOpenPosition<'info> {
             &tick_lower_index.to_be_bytes(),
             &tick_upper_index.to_be_bytes(),
         ],
-        seeds::program = clmm_program,
+        seeds::program = clmm_program.key(),
         bump,
     )]
     pub protocol_position: UncheckedAccount<'info>,
@@ -61,7 +61,7 @@ pub struct ProxyOpenPosition<'info> {
             pool_state.key().as_ref(),
             &tick_array_lower_start_index.to_be_bytes(),
         ],
-        seeds::program = clmm_program,
+        seeds::program = clmm_program.key(),
         bump,
     )]
     pub tick_array_lower: UncheckedAccount<'info>,
@@ -74,7 +74,7 @@ pub struct ProxyOpenPosition<'info> {
             pool_state.key().as_ref(),
             &tick_array_upper_start_index.to_be_bytes(),
         ],
-        seeds::program = clmm_program,
+        seeds::program = clmm_program.key(),
         bump,
     )]
     pub tick_array_upper: UncheckedAccount<'info>,
@@ -83,7 +83,7 @@ pub struct ProxyOpenPosition<'info> {
     #[account(
         mut,
         seeds = [POSITION_SEED.as_bytes(), position_nft_mint.key().as_ref()],
-        seeds::program = clmm_program,
+        seeds::program = clmm_program.key(),
         bump,
     )]
     pub personal_position: UncheckedAccount<'info>,

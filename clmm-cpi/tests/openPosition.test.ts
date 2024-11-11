@@ -14,7 +14,7 @@ describe("open position test", () => {
     skipPreflight: true,
   };
 
-  it("create pool", async () => {
+  it("open position", async () => {
     const { token0, token0Program, token1, token1Program } =
       await setupInitializeTest(
         connection,

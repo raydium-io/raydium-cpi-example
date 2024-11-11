@@ -33,7 +33,7 @@ pub struct ProxyIncreaseLiquidity<'info> {
             &personal_position.tick_lower_index.to_be_bytes(),
             &personal_position.tick_upper_index.to_be_bytes(),
         ],
-        seeds::program = clmm_program,
+        seeds::program = clmm_program.key(),
         bump,
         constraint = protocol_position.pool_id == pool_state.key(),
     )]
