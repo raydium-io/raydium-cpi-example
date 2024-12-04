@@ -1,8 +1,31 @@
-# Raydium-cpi-example 
-The development environment for Raydium's CLMM/CPMM/AMM contracts is:
+# Raydium-cpi-example
+
+Example of CPI call, relying on Raydium's CLMM/CPMM/AMM main contracts
+
+## Environmental requirements
+
 ```
 solana-cli 1.17.0
 anchor-cli 0.29.0
 ```
 
-If you want to refer to the latest examples, please check the branch content.
+<font color="red"> If you are using a newer version of the anchor, please refer to examples and development environment requirements from other branches.</font>
+
+## Accounts
+
+Some accounts are convenient for testing purposes.
+
+### CPMM
+
+| network     | devnet                                       | mainnet                                      |
+| ----------- | -------------------------------------------- | -------------------------------------------- |
+| Program     | CPMDWBwJDtYax9qW7AyRuVC19Cc4L4Vcy4n2BHAbHkCW | CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C |
+| AmmConfig   | 9zSzfkYy6awexsHvmggeH36pfVUdDGyCcwmjT3AQPBj6 | D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2 |
+| FeeReceiver | G11FKBRaAkHAKuLCgLM6K6NUc9rTjPAznRCjZifrTQe2 | DNXgeM9EiiaAbaWvwjHj9fQQLAX5ZsfHyvmYUNRAdNC8 |
+
+### CLMM
+
+| network   | devnet                                       | mainnet                                      |
+| --------- | -------------------------------------------- | -------------------------------------------- |
+| Program   | devi51mZmdwUJGU9hjN27vEz64Gps7uUefqxg27EAtH  | CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK |
+| AmmConfig | CQYbhr6amxUER4p5SC44C63R4qw4NFc9Z4Db9vF4tZwG | 4BLNHtVe942GSs4teSZqGX24xwKNkqU7bGgNn3iUiUpw |
