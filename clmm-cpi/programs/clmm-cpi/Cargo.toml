@@ -15,6 +15,7 @@ no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
 idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+devnet = ["raydium-clmm-cpi/devnet"]
 
 [dependencies]
 anchor-lang = "=0.30.1"

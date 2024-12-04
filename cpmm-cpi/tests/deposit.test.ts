@@ -1,13 +1,13 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program, BN } from "@coral-xyz/anchor";
-import { CpSwapCpi } from "../target/types/cp_swap_cpi";
+import { CpmmCpiExample } from "../target/types/cpmm_cpi_example";
 import { deposit, setupDepositTest } from "./utils";
 
 describe("deposit test", () => {
   anchor.setProvider(anchor.AnchorProvider.env());
   const owner = anchor.Wallet.local().payer;
 
-  const program = anchor.workspace.CpSwapCpi as Program<CpSwapCpi>;
+  const program = anchor.workspace.CpmmCpiExample as Program<CpmmCpiExample>;
 
   const confirmOptions = {
     skipPreflight: true,

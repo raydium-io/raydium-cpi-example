@@ -1,5 +1,5 @@
 import { Program, BN } from "@coral-xyz/anchor";
-import { CpSwapCpi } from "../../target/types/cp_swap_cpi";
+import { CpmmCpiExample } from "../../target/types/cpmm_cpi_example";
 import {
   Connection,
   ConfirmOptions,
@@ -55,7 +55,7 @@ export async function setupInitializeTest(
 }
 
 export async function setupDepositTest(
-  program: Program<CpSwapCpi>,
+  program: Program<CpmmCpiExample>,
   connection: Connection,
   owner: Signer,
   transferFeeConfig: { transferFeeBasisPoints: number; MaxFee: number } = {
@@ -117,7 +117,7 @@ export async function setupDepositTest(
 }
 
 export async function setupSwapTest(
-  program: Program<CpSwapCpi>,
+  program: Program<CpmmCpiExample>,
   connection: Connection,
   owner: Signer,
   transferFeeConfig: { transferFeeBasisPoints: number; MaxFee: number } = {
@@ -162,7 +162,7 @@ export async function setupSwapTest(
 }
 
 export async function initialize(
-  program: Program<CpSwapCpi>,
+  program: Program<CpmmCpiExample>,
   creator: Signer,
   configAddress: PublicKey,
   token0: PublicKey,
@@ -266,7 +266,7 @@ export async function initialize(
 }
 
 export async function deposit(
-  program: Program<CpSwapCpi>,
+  program: Program<CpmmCpiExample>,
   owner: Signer,
   configAddress: PublicKey,
   token0: PublicKey,
@@ -351,7 +351,7 @@ export async function deposit(
 }
 
 export async function withdraw(
-  program: Program<CpSwapCpi>,
+  program: Program<CpmmCpiExample>,
   owner: Signer,
   configAddress: PublicKey,
   token0: PublicKey,
@@ -440,7 +440,7 @@ export async function withdraw(
 }
 
 export async function swap_base_input(
-  program: Program<CpSwapCpi>,
+  program: Program<CpmmCpiExample>,
   owner: Signer,
   configAddress: PublicKey,
   inputToken: PublicKey,
@@ -514,7 +514,7 @@ export async function swap_base_input(
 }
 
 export async function swap_base_output(
-  program: Program<CpSwapCpi>,
+  program: Program<CpmmCpiExample>,
   owner: Signer,
   configAddress: PublicKey,
   inputToken: PublicKey,
