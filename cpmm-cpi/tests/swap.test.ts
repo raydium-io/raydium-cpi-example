@@ -1,6 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program, BN } from "@coral-xyz/anchor";
-import { CpSwapCpi } from "../target/types/cp_swap_cpi";
+import { CpmmCpiExample } from "../target/types/cpmm_cpi_example";
 import { setupSwapTest, swap_base_input, swap_base_output } from "./utils";
 import { getAccount, getAssociatedTokenAddressSync } from "@solana/spl-token";
 import { configAddress } from "./config";
@@ -9,7 +9,7 @@ describe("swap test", () => {
   anchor.setProvider(anchor.AnchorProvider.env());
   const owner = anchor.Wallet.local().payer;
 
-  const program = anchor.workspace.CpSwapCpi as Program<CpSwapCpi>;
+  const program = anchor.workspace.CpmmCpiExample as Program<CpmmCpiExample>;
 
   const confirmOptions = {
     skipPreflight: true,

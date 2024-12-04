@@ -6,13 +6,14 @@ edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "cpmm_cpi"
+name = "cpmm_cpi_example"
 
 [features]
 no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
 default = []
+devnet = ["raydium-cpmm-cpi/devnet"]
 
 [dependencies]
 anchor-lang = "=0.29.0"

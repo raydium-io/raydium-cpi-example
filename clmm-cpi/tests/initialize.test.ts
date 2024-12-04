@@ -1,12 +1,12 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { ClmmCpi } from "../target/types/clmm_cpi";
+import { ClmmCpiExample } from "../target/types/clmm_cpi_example";
 import { setupInitializeTest, initialize } from "./utils";
 
 describe("initialize test", () => {
   anchor.setProvider(anchor.AnchorProvider.env());
   const owner = anchor.Wallet.local().payer;
-  const program = anchor.workspace.ClmmCpi as Program<ClmmCpi>;
+  const program = anchor.workspace.ClmmCpiExample as Program<ClmmCpiExample>;
 
   const confirmOptions = {
     skipPreflight: true,

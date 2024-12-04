@@ -1,5 +1,5 @@
 import { Program, BN } from "@coral-xyz/anchor";
-import { ClmmCpi } from "../../target/types/clmm_cpi";
+import { ClmmCpiExample } from "../../target/types/clmm_cpi_example";
 import {
   Connection,
   ConfirmOptions,
@@ -56,7 +56,7 @@ export async function setupInitializeTest(
 }
 
 export async function initialize(
-  program: Program<ClmmCpi>,
+  program: Program<ClmmCpiExample>,
   creator: Signer,
   token0: PublicKey,
   token0Program: PublicKey,
@@ -129,7 +129,7 @@ export async function initialize(
 }
 
 export async function openPosition(
-  program: Program<ClmmCpi>,
+  program: Program<ClmmCpiExample>,
   owner: Signer,
   poolKeys: ClmmKeys,
   tickLowerIndex: number,

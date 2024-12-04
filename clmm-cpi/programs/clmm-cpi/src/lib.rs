@@ -5,7 +5,7 @@ use instructions::*;
 declare_id!("8wGnAiSXYK31kdas6qNgfr8N3pzHoBEAaDK824qgYE81");
 
 #[program]
-pub mod clmm_cpi {
+pub mod clmm_cpi_example {
     use super::*;
 
     pub fn proxy_initialize(
