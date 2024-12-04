@@ -1,6 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program, BN } from "@coral-xyz/anchor";
-import { CpSwapCpi } from "../target/types/cp_swap_cpi";
+import { CpmmCpiExample } from "../target/types/cpmm_cpi_example";
 import { setupInitializeTest, initialize } from "./utils";
 
 describe("initialize test", () => {
@@ -8,7 +8,7 @@ describe("initialize test", () => {
   const owner = anchor.Wallet.local().payer;
   console.log("owner: ", owner.publicKey.toString());
 
-  const program = anchor.workspace.CpSwapCpi as Program<CpSwapCpi>;
+  const program = anchor.workspace.CpmmCpiExample as Program<CpmmCpiExample>;
 
   const confirmOptions = {
     skipPreflight: true,

@@ -1,12 +1,12 @@
 [package]
-name = "cp-swap-cpi"
+name = "cpmm-cpi"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "cp_swap_cpi"
+name = "cpmm_cpi_example"
 
 [features]
 no-entrypoint = []
@@ -14,6 +14,7 @@ no-idl = []
 no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
+devnet = ["raydium-cp-swap/devnet"]
 
 [dependencies]
 anchor-lang = "=0.29.0"

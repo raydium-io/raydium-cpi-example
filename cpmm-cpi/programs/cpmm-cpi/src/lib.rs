@@ -6,7 +6,7 @@ use instructions::*;
 declare_id!("A5DqDJBweQTieKjx3RXrnFHU1oQCD69edaDe5ztyn7KK");
 
 #[program]
-pub mod cp_swap_cpi {
+pub mod cpmm_cpi_example {
     use super::*;
 
     pub fn proxy_initialize(
