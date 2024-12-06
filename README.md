@@ -32,7 +32,7 @@ Some accounts are convenient for testing purposes.
 
 ## Devnet Test
 
-If you want to test on devnet, please pay attention to the `devnet` feature in the [example](https://github.com/raydium-io/raydium-cpi-example/blob/master/cpmm-cpi/programs/cpmm-cpi/Cargo.toml#L17). Use the following command when compiling: 
+If your contract is completed and you want to deploy it on devnet, please pay attention to the `devnet` feature in the [example](https://github.com/raydium-io/raydium-cpi-example/blob/master/cpmm-cpi/programs/cpmm-cpi/Cargo.toml#L17). Use the following command when compiling: 
 ```
 anchor build -- --features devnet
 ```

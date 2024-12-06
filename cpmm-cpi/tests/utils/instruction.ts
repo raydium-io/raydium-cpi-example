@@ -244,6 +244,7 @@ export async function initialize(
       tokenProgram: TOKEN_PROGRAM_ID,
       token0Program: token0Program,
       token1Program: token1Program,
+      associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
       systemProgram: SystemProgram.programId,
       rent: SYSVAR_RENT_PUBKEY,
     })
