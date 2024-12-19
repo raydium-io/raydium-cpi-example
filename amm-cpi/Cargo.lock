@@ -1549,7 +1549,7 @@ dependencies = [
 [[package]]
 name = "raydium-amm-cpi"
 version = "0.1.0"
-source = "git+https://github.com/raydium-io/raydium-cpi#90b5df77ff6846e23ace6a56c9f7f90101aeccf3"
+source = "git+https://github.com/raydium-io/raydium-cpi#3e853fa51fade1f51e34c64903a69e7c4129404a"
 dependencies = [
  "ahash 0.8.6",
  "anchor-lang",
