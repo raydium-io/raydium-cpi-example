@@ -1583,7 +1583,7 @@ dependencies = [
 [[package]]
 name = "raydium-amm-cpi"
 version = "0.1.0"
-source = "git+https://github.com/raydium-io/raydium-cpi?branch=anchor-0.30.1#8b7adc8f969856e39b2e9f0fd8df2928b3b104be"
+source = "git+https://github.com/raydium-io/raydium-cpi?branch=anchor-0.30.1#f915ee8e902203ef87381e2d399b5db525076aad"
 dependencies = [
  "anchor-lang",
  "anchor-spl",
