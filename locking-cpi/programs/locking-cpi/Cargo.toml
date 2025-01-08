@@ -1,12 +1,12 @@
 [package]
-name = "clmm-cpi-exmaple"
+name = "locking-cpi-example"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "clmm_cpi_example"
+name = "locking_cpi_example"
 
 [features]
 no-entrypoint = []
@@ -14,14 +14,12 @@ no-idl = []
 no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
-devnet = ["raydium-clmm-cpi/devnet"]
+devnet = ["raydium-locking-cpi/devnet"]
 
 [dependencies]
 anchor-lang = "=0.29.0"
 anchor-spl = "=0.29.0"
+raydium-locking-cpi = { git = "https://github.com/raydium-io/raydium-cpi", package = "raydium-locking-cpi", branch = "anchor-0.29.0" }
 raydium-clmm-cpi = { git = "https://github.com/raydium-io/raydium-cpi", package = "raydium-clmm-cpi", branch = "anchor-0.29.0" }
+raydium-cpmm-cpi = { git = "https://github.com/raydium-io/raydium-cpi", package = "raydium-cpmm-cpi", branch = "anchor-0.29.0" }
 spl-memo = "=4.0.0"
-# solana-program = ">=1.16, <1.18"
-# spl-token = "=4.0.0"
-# num_enum = "=0.7.0"
-# ahash = "=0.8.6"

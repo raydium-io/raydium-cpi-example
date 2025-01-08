@@ -62,6 +62,3 @@ pub mod cpmm_cpi_example {
         instructions::proxy_swap_base_output(ctx, max_amount_in, amount_out)
     }
 }
-
-#[derive(Accounts)]
-pub struct Initialize {}
