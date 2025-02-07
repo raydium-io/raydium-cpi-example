@@ -1,4 +1,6 @@
 use anchor_lang::prelude::*;
+use anchor_lang::solana_program;
+use anchor_lang::Discriminator;
 use anchor_spl::{
     associated_token::AssociatedToken,
     token::Token,
@@ -6,12 +8,13 @@ use anchor_spl::{
 };
 use raydium_cpmm_cpi::{
     cpi,
+    instruction,
     program::RaydiumCpmm,
-    states::{AmmConfig, OBSERVATION_SEED, POOL_LP_MINT_SEED, POOL_SEED, POOL_VAULT_SEED},
+    states::{AmmConfig, OBSERVATION_SEED, POOL_LP_MINT_SEED, POOL_VAULT_SEED},
 };
 
 #[derive(Accounts)]
-pub struct ProxyInitialize<'info> {
+pub struct ProxyInitializeRandomPool<'info> {
     pub cp_swap_program: Program<'info, RaydiumCpmm>,
     /// Address paying to create the pool. Can be anyone
     #[account(mut)]
@@ -33,16 +36,8 @@ pub struct ProxyInitialize<'info> {
     /// CHECK: Initialize an account to store the pool state, init by cp-swap
     #[account(
         mut,
-        seeds = [
-            POOL_SEED.as_bytes(),
-            amm_config.key().as_ref(),
-            token_0_mint.key().as_ref(),
-            token_1_mint.key().as_ref(),
-        ],
-        seeds::program = cp_swap_program,
-        bump,
     )]  
-    pub pool_state: UncheckedAccount<'info>,
+    pub pool_state: Signer<'info>,
 
     /// Token_0 mint, the key must smaller then token_1 mint.
     #[account(
@@ -148,8 +143,8 @@ pub struct ProxyInitialize<'info> {
     pub rent: Sysvar<'info, Rent>,
 }
 
-pub fn proxy_initialize(
-    ctx: Context<ProxyInitialize>,
+pub fn proxy_initialize_random_pool(
+    ctx: Context<ProxyInitializeRandomPool>,
     init_amount_0: u64,
     init_amount_1: u64,
     open_time: u64,
@@ -176,6 +171,29 @@ pub fn proxy_initialize(
         system_program: ctx.accounts.system_program.to_account_info(),
         rent: ctx.accounts.rent.to_account_info(),
     };
-    let cpi_context = CpiContext::new(ctx.accounts.cp_swap_program.to_account_info(), cpi_accounts);
-    cpi::initialize(cpi_context, init_amount_0, init_amount_1, open_time)
+
+    let ix = instruction::Initialize {
+        init_amount_0,
+        init_amount_1,
+        open_time,
+    };
+    let mut ix_data = Vec::with_capacity(256);
+    ix_data.extend_from_slice(&instruction::Initialize::discriminator());
+    AnchorSerialize::serialize(&ix, &mut ix_data)?;
+
+    let ix = solana_program::instruction::Instruction {
+        program_id: ctx.accounts.cp_swap_program.key(),
+        accounts: cpi_accounts
+            .to_account_metas(None)
+            .into_iter()
+            .zip(cpi_accounts.to_account_infos())
+            .map(|mut pair| {
+                pair.0.is_signer = pair.1.is_signer;
+                pair.0
+            })
+            .collect(),
+        data: ix_data,
+    };
+    solana_program::program::invoke(&ix, &cpi_accounts.to_account_infos())?;
+    Ok(())
 }
