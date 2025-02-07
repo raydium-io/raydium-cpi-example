@@ -18,6 +18,15 @@ pub mod cpmm_cpi_example {
         instructions::proxy_initialize(ctx, init_amount_0, init_amount_1, open_time)
     }
 
+    pub fn proxy_initialize_random_pool(
+        ctx: Context<ProxyInitializeRandomPool>,
+        init_amount_0: u64,
+        init_amount_1: u64,
+        open_time: u64,
+    ) -> Result<()> {
+        instructions::proxy_initialize_random_pool(ctx, init_amount_0, init_amount_1, open_time)
+    }
+
     pub fn proxy_deposit(
         ctx: Context<ProxyDeposit>,
         lp_token_amount: u64,
