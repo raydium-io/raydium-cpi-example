@@ -7,8 +7,7 @@ use anchor_spl::{
     token_interface::{Mint, TokenAccount, TokenInterface},
 };
 use raydium_cpmm_cpi::{
-    cpi,
-    instruction,
+    cpi, instruction,
     program::RaydiumCpmm,
     states::{AmmConfig, OBSERVATION_SEED, POOL_LP_MINT_SEED, POOL_VAULT_SEED},
 };
@@ -34,9 +33,7 @@ pub struct ProxyInitializeRandomPool<'info> {
     pub authority: UncheckedAccount<'info>,
 
     /// CHECK: Initialize an account to store the pool state, init by cp-swap
-    #[account(
-        mut,
-    )]  
+    #[account(mut)]
     pub pool_state: Signer<'info>,
 
     /// Token_0 mint, the key must smaller then token_1 mint.
@@ -178,7 +175,7 @@ pub fn proxy_initialize_random_pool(
         open_time,
     };
     let mut ix_data = Vec::with_capacity(256);
-    ix_data.extend_from_slice(&instruction::Initialize::discriminator());
+    ix_data.extend_from_slice(&instruction::Initialize::DISCRIMINATOR);
     AnchorSerialize::serialize(&ix, &mut ix_data)?;
 
     let ix = solana_program::instruction::Instruction {
