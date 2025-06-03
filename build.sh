@@ -3,4 +3,5 @@
 cd amm-cpi && anchor build && cd ..
 cd clmm-cpi && anchor build && cd ..
 cd cpmm-cpi && anchor build  && cd ..
-cd locking-cpi && anchor build 
+cd locking-cpi && anchor build && cd ..
+cd launch-cpi && anchor build 

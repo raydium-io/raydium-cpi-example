@@ -1,0 +1,23 @@
+[package]
+name = "launch-cpi-example"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "launch_cpi_example"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build","anchor-spl/idl-build"]
+
+
+[dependencies]
+anchor-spl = { version = "=0.31.0" }
+anchor-lang = "=0.31.0"
+raydium-launch-cpi = { git = "https://github.com/raydium-io/raydium-cpi", package = "raydium-launch-cpi", branch = "anchor-0.31.0" }
