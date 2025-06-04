@@ -8,6 +8,7 @@ import {
   Signer,
   SystemProgram,
   SYSVAR_RENT_PUBKEY,
+  ComputeBudgetInstruction,
 } from "@solana/web3.js";
 import {
   TOKEN_PROGRAM_ID,
@@ -23,6 +24,7 @@ import {
   getMetadataAddress,
   createQuoteMintAssociatedTokenAccount,
 } from "./index";
+import { addComputeBudget } from "@raydium-io/raydium-sdk-v2";
 
 const LAUNCH_PROGRAM_ID = new PublicKey(
   "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj"
@@ -344,6 +346,7 @@ export async function buyExactIn(
       baseTokenProgram: baseTokenProgram,
       quoteTokenProgram: quoteTokenProgram,
     })
+    .preInstructions(addComputeBudget({ units: 1400000000 }).instructions)
     .rpc(confirmOptions);
   return tx;
 }
@@ -410,6 +413,7 @@ export async function buyExactOut(
       baseTokenProgram: baseTokenProgram,
       quoteTokenProgram: quoteTokenProgram,
     })
+    .preInstructions(addComputeBudget({ units: 1400000000 }).instructions)
     .rpc(confirmOptions);
   return tx;
 }
@@ -476,6 +480,7 @@ export async function sellExactIn(
       baseTokenProgram: baseTokenProgram,
       quoteTokenProgram: quoteTokenProgram,
     })
+    .preInstructions(addComputeBudget({ units: 1400000000 }).instructions)
     .rpc(confirmOptions);
 
   return tx;
@@ -543,6 +548,7 @@ export async function sellExactOut(
       baseTokenProgram: baseTokenProgram,
       quoteTokenProgram: quoteTokenProgram,
     })
+    .preInstructions(addComputeBudget({ units: 1400000000 }).instructions)
     .rpc(confirmOptions);
 
   return tx;
