@@ -3,7 +3,7 @@ use instructions::*;
 
 pub mod instructions;
 
-declare_id!("3igNEs6GbvsAgEicsLTkduyhVFWXNkGerQobX1fdZdf9");
+declare_id!("WQ9kWzDhioPGE9Tw4N4VzAYej62afEfp1qnBdCp3t9k");
 
 #[program]
 pub mod amm_cpi {

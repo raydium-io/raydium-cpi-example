@@ -5,14 +5,14 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-amm_cpi = "3igNEs6GbvsAgEicsLTkduyhVFWXNkGerQobX1fdZdf9"
+amm_cpi = "WQ9kWzDhioPGE9Tw4N4VzAYej62afEfp1qnBdCp3t9k"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-wallet = "/home/ubuntu/.config/solana/id.json"
+cluster = "https://withered-dawn-river.solana-devnet.quiknode.pro/426a84c0fdad18b9cb85a23bf63044fec11a4eb1"
+wallet = "/Users/alex/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
