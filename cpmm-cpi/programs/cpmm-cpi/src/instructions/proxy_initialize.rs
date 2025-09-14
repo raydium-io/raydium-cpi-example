@@ -118,7 +118,7 @@ pub struct ProxyInitialize<'info> {
     /// create pool fee account
     #[account(
         mut,
-        address= raydium_cp_swap::create_pool_fee_reveiver::id(),
+        address= raydium_cp_swap::create_pool_fee_reveiver::ID,
     )]
     pub create_pool_fee: Box<InterfaceAccount<'info, TokenAccount>>,
 
