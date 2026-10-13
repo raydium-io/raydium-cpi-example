@@ -19,16 +19,16 @@ Some accounts are convenient for testing purposes.
 
 | network     | devnet                                       | mainnet                                      |
 | ----------- | -------------------------------------------- | -------------------------------------------- |
-| Program     | CPMDWBwJDtYax9qW7AyRuVC19Cc4L4Vcy4n2BHAbHkCW | CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C |
-| AmmConfig   | 9zSzfkYy6awexsHvmggeH36pfVUdDGyCcwmjT3AQPBj6 | D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2 |
-| FeeReceiver | G11FKBRaAkHAKuLCgLM6K6NUc9rTjPAznRCjZifrTQe2 | DNXgeM9EiiaAbaWvwjHj9fQQLAX5ZsfHyvmYUNRAdNC8 |
+| Program     | DRaycpLY18LhpbydsBWbVJtxpNv9oXPgjRSfpF2bWpYb | CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C |
+| AmmConfig   | 5MxLgy9oPdTC3YgkiePHqr3EoCRD9uLVYRQS2ANAs7wy | D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2 |
+| FeeReceiver | 3oE58BKVt8KuYkGxx8zBojugnymWmBiyafWgMrnb6eYy | DNXgeM9EiiaAbaWvwjHj9fQQLAX5ZsfHyvmYUNRAdNC8 |
 
 ### CLMM
 
 | network   | devnet                                       | mainnet                                      |
 | --------- | -------------------------------------------- | -------------------------------------------- |
-| Program   | devi51mZmdwUJGU9hjN27vEz64Gps7uUefqxg27EAtH  | CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK |
-| AmmConfig | CQYbhr6amxUER4p5SC44C63R4qw4NFc9Z4Db9vF4tZwG | 4BLNHtVe942GSs4teSZqGX24xwKNkqU7bGgNn3iUiUpw |
+| Program   | DRayAUgENGQBKVaX8owNhgzkEDyoHTGVEGHVJT1E9pfH  | CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK |
+| AmmConfig | CD4aJtX11cqTCAc83nxSPkkh5JW2yjD6uwHeovjqQ1qu | 4BLNHtVe942GSs4teSZqGX24xwKNkqU7bGgNn3iUiUpw |
 
 ## Devnet Test
 
